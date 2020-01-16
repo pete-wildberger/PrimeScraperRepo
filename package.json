@@ -6,7 +6,7 @@
   "author": "Peter Wildberger",
   "license": "MIT",
   "scripts": {
-    "start": "node dist/main.js"
+    "start": "tsc && node dist/main.js"
   },
   "dependencies": {
     "@types/node": "^13.1.7",
