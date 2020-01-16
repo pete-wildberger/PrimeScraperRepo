@@ -1,0 +1,16 @@
+{
+  "name": "PrimeScraperRepo",
+  "version": "1.0.0",
+  "description": "Demo for Feb. 13",
+  "main": "dist/main.js",
+  "author": "Peter Wildberger",
+  "license": "MIT",
+  "scripts": {
+    "start": "node dist/main.js"
+  },
+  "dependencies": {
+    "@types/node": "^13.1.7",
+    "axios": "^0.19.1",
+    "cheerio": "^1.0.0-rc.3"
+  }
+}
