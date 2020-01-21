@@ -2,6 +2,10 @@ import axios from 'axios';
 import * as cheerio from 'cheerio';
 
 export class App {
+    private config = {
+        title: '.summary-title',
+        time: '.summary-metadata'
+    };
     constructor() {
         console.log('App started');
         this.run();
@@ -11,20 +15,37 @@ export class App {
         try {
             const { data } = await axios.get('https://www.thecedar.org/listing');
             const $ = cheerio.load(data);
-            const titles = this.selectText($, '.summary-title');
-            console.log(titles);
+            const els = this.selectElements($, '.summary-item');
+            const shows = this.buildShows($, els, this.config);
+            console.log(shows);
         } catch (error) {
             console.log(error);
         }
     };
 
-    selectText($: CheerioStatic, selector: string) {
-        const titles: string[] = [];
+    selectElements($: CheerioStatic, selector: string): CheerioElement[] {
+        const elements: CheerioElement[] = [];
         $(selector).each(function(i, elem) {
-            titles[i] = $(elem)
-                .text()
-                .trim();
+            elements[i] = elem;
         });
-        return titles;
+        return elements;
+    }
+
+    buildShows(
+        $: CheerioStatic,
+        elements: CheerioElement[],
+        config: { [key: string]: string }
+    ): Array<{ [key: string]: string }> {
+        return elements.map(el => {
+            const result = {};
+            Object.entries(config).forEach(([key, value]) => {
+                result[key] = $(el)
+                    .find(value)
+                    .first()
+                    .text()
+                    .trim();
+            });
+            return result;
+        });
     }
 }
