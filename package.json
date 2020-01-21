@@ -9,6 +9,7 @@
     "start": "tsc && node dist/main.js"
   },
   "dependencies": {
+    "@types/cheerio": "^0.22.15",
     "@types/node": "^13.1.7",
     "axios": "^0.19.1",
     "cheerio": "^1.0.0-rc.3"

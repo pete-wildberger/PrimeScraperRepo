@@ -1,4 +1,4 @@
-[Cherrio Docs](https://github.com/cheeriojs/cheerio)
+[Cherrio Docs](https://cheerio.js.org/)
 [Puppeteer Docs](https://github.com/puppeteer/puppeteer/blob/master/README.md)
 
 ## Getting started with this repo
