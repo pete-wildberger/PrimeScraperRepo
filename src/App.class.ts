@@ -25,17 +25,13 @@ export class App {
 
     selectElements($: CheerioStatic, selector: string): CheerioElement[] {
         const elements: CheerioElement[] = [];
-        $(selector).each(function(i, elem) {
+        $(selector).each((i, elem) => {
             elements[i] = elem;
         });
         return elements;
     }
 
-    buildShows(
-        $: CheerioStatic,
-        elements: CheerioElement[],
-        config: { [key: string]: string }
-    ): Array<{ [key: string]: string }> {
+    buildShows($: CheerioStatic, elements: CheerioElement[], config: { [key: string]: string }): Array<{ [key: string]: string }> {
         return elements.map(el => {
             const result = {};
             Object.entries(config).forEach(([key, value]) => {
