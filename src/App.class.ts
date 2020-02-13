@@ -1,5 +1,8 @@
 import axios from 'axios';
 import * as cheerio from 'cheerio';
+import { promisify } from 'util';
+import { writeFile as wf } from 'fs';
+const writeFile = promisify(wf);
 
 export interface ConfigModel {
     parent: string;
@@ -25,6 +28,7 @@ export class App {
             const $ = cheerio.load(data); // load Cheerio
             const els = this.selectElements($, this.config.parent); // select parent elements
             const shows = this.buildResult($, els, this.config.children); // build result object array
+            await this.writeJSONFile('result.json', shows);
             console.log(shows); // print result
         } catch (error) {
             console.log(error);
@@ -53,5 +57,14 @@ export class App {
             });
             return result;
         });
+    }
+
+    async writeJSONFile(name: string, obj: { [key: string]: any }): Promise<void> {
+        const data = JSON.stringify(obj);
+        try {
+            await writeFile(name, data);
+        } catch (err) {
+            throw err;
+        }
     }
 }

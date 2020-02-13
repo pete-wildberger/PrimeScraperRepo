@@ -8,6 +8,8 @@ The code in this repo is written in typescript. Typescript will install as part 
 
 ## How it Works
 
+This scraper is set up to turn lists of web elements into a json file and prints it to the console.
+
 The App requires two arguments: a url and a config object. The url is a string http(s) website address. The config object consists of a parent key which has a css selector string values. The children key is and object with key value pairs of string keys and css selector string values.
 
 ```
@@ -26,9 +28,20 @@ To start the app just make a new instance by injecting the url and config props.
 new App(URL, CONFIG);
 ```
 
-## Docs
+Upon errorless App completion a json file will be saved in the root directory.
 
+## Dependencies
+
+Main dependencies:
+[Axios](https://github.com/axios/axios)
 [Cherrio Docs](https://cheerio.js.org/)
+[Typescript](https://www.typescriptlang.org/docs/handbook/typescript-in-5-minutes.html)
+
+Utility dependencies:
+[Utils](https://nodejs.org/dist/latest-v8.x/docs/api/util.html#util_util_promisify_original)
+[FS](https://nodejs.org/dist/latest-v8.x/docs/api/fs.html#fs_fs_writefile_file_data_options_callback)
+
+## Further Reading
 
 [Puppeteer Docs](https://github.com/puppeteer/puppeteer/blob/master/README.md)
 
