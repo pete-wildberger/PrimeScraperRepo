@@ -33,13 +33,18 @@ Upon errorless App completion a json file will be saved in the root directory.
 ## Dependencies
 
 Main dependencies:
-[Axios](https://github.com/axios/axios)
-[Cherrio Docs](https://cheerio.js.org/)
-[Typescript](https://www.typescriptlang.org/docs/handbook/typescript-in-5-minutes.html)
+
+-   [Axios](https://github.com/axios/axios)
+
+-   [Cherrio Docs](https://cheerio.js.org/)
+
+-   [Typescript](https://www.typescriptlang.org/docs/handbook/typescript-in-5-minutes.html)
 
 Utility dependencies:
-[Utils](https://nodejs.org/dist/latest-v8.x/docs/api/util.html#util_util_promisify_original)
-[FS](https://nodejs.org/dist/latest-v8.x/docs/api/fs.html#fs_fs_writefile_file_data_options_callback)
+
+-   [Utils](https://nodejs.org/dist/latest-v8.x/docs/api/util.html#util_util_promisify_original)
+
+-   [FS](https://nodejs.org/dist/latest-v8.x/docs/api/fs.html#fs_fs_writefile_file_data_options_callback)
 
 ## Further Reading
 
