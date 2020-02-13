@@ -2,21 +2,21 @@ import axios from 'axios';
 import * as cheerio from 'cheerio';
 
 export class App {
-    private config = {
-        title: '.summary-title',
-        time: '.summary-metadata'
-    };
-    constructor() {
+    private config;
+    private url: string;
+    constructor(url, config) {
         console.log('App started');
+        this.url = url;
+        this.config = config;
         this.run();
     }
 
     run = async (): Promise<void> => {
         try {
-            const { data } = await axios.get('https://www.thecedar.org/listing');
+            const { data } = await axios.get(this.url);
             const $ = cheerio.load(data);
-            const els = this.selectElements($, '.summary-item');
-            const shows = this.buildShows($, els, this.config);
+            const els = this.selectElements($, this.config.parent);
+            const shows = this.buildShows($, els, this.config.children);
             console.log(shows);
         } catch (error) {
             console.log(error);
