@@ -37,6 +37,7 @@ export class App {
 
     selectElements($: CheerioStatic, selector: string): CheerioElement[] {
         const elements: CheerioElement[] = [];
+        // https://api.jquery.com/each/
         $(selector).each((i, elem) => {
             // select all elements based of parent config and push into an array
             elements[i] = elem;
@@ -50,9 +51,9 @@ export class App {
             const result = {};
             Object.entries(config).forEach(([key, value]) => {
                 result[key] = $(el)
-                    .find(value)
-                    .first()
-                    .text()
+                    .find(value) // https://api.jquery.com/find/
+                    .first() // https://api.jquery.com/first/
+                    .text() // https://api.jquery.com/text/
                     .trim();
             });
             return result;
