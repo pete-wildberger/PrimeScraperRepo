@@ -4,7 +4,7 @@
 
 ## Getting started with this repo
 
-The code in this repo is written in typescript. You can install typescript globally on your machine by running `sudo npm install -g typescript`. To build and start the project run `npm start` or `yarn start`.
+The code in this repo is written in typescript. Typescript will install as part of the dev dependencies. You can also install typescript globally on your machine by running `sudo npm install -g typescript`. To build and start the project run `npm start` or `yarn start`.
 
 ## Docs
 

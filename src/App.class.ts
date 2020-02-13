@@ -1,10 +1,17 @@
 import axios from 'axios';
 import * as cheerio from 'cheerio';
 
+export interface ConfigModel {
+    parent: string;
+    children: {
+        [key: string]: string;
+    };
+}
+
 export class App {
-    private config;
+    private config: ConfigModel;
     private url: string;
-    constructor(url, config) {
+    constructor(url: string, config: ConfigModel) {
         console.log('App started');
         this.url = url;
         this.config = config;
@@ -16,7 +23,7 @@ export class App {
             const { data } = await axios.get(this.url);
             const $ = cheerio.load(data);
             const els = this.selectElements($, this.config.parent);
-            const shows = this.buildShows($, els, this.config.children);
+            const shows = this.buildResult($, els, this.config.children);
             console.log(shows);
         } catch (error) {
             console.log(error);
@@ -31,7 +38,7 @@ export class App {
         return elements;
     }
 
-    buildShows($: CheerioStatic, elements: CheerioElement[], config: { [key: string]: string }): Array<{ [key: string]: string }> {
+    buildResult($: CheerioStatic, elements: CheerioElement[], config: { [key: string]: string }): Array<{ [key: string]: string }> {
         return elements.map(el => {
             const result = {};
             Object.entries(config).forEach(([key, value]) => {
