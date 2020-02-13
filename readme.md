@@ -11,7 +11,7 @@ The code in this repo is written in typescript. Typescript will install as part 
 The App requires two arguments: a url and a config object. The url is a string http(s) website address. The config object consists of a parent key which has a css selector string values. The children key is and object with key value pairs of string keys and css selector string values.
 
 ```
-const URL: string = 'https://www.thecedar.org/listing';
+const URL: string = 'https://www.example.com';
 const CONFIG: ConfigModel = {
     parent: 'a container element css selector',
     children: {
